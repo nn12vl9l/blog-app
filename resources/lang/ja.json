@@ -81,5 +81,6 @@
     "Event Start": "開始日時",
     "Event End": "終了日時",
     "Event Name": "タイトル",
-    "Description": "詳細"
+    "Description": "詳細",
+    "pagination": ":total件中、:from〜:to件表示"
 }
