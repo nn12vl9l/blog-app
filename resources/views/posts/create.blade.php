@@ -1,7 +1,9 @@
 <x-app-layout>
     <div class="container lg:w-1/2 md:w-4/5 w-11/12 mx-auto mt-8 px-8 bg-white shadow-md">
         <h2 class="text-center text-lg font-bold pt-6 tracking-widest">ブログ登録</h2>
+
         <x-validation-errors :errors="$errors" />
+        
         {{-- inputでfileを送る場合、「enctype="multipart/form-data"」はformタグに必ず入れる --}}
         <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data"
             class="rounded pt-3 pb-8 mb-4">
