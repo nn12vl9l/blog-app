@@ -43,8 +43,17 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //リレーションの設定
+    //userは複数の記事を投稿することが出来るため、複数形(posts)で定義
+    //hasManyで1対Many
+    //データを参照する場合は「$user->posts」で
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }
