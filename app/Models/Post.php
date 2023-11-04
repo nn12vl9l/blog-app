@@ -34,7 +34,7 @@ class Post extends Model
         return 'images/posts/' . $this->image;
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }

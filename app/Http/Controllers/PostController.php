@@ -126,6 +126,8 @@ class PostController extends Controller
         }
         return redirect()->route('posts.show', $post)
             ->with('notice', '記事を更新しました');
+            //withメソッド
+            //noticeというキーで、メッセージを渡す
     }
 
     /**
