@@ -136,12 +136,14 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
+
         $post = Post::find($id);
         // トランザクション開始
         DB::beginTransaction();
         try {
             $post->delete();
             // 画像削除
+            //!は失敗したときの処理
             if (!Storage::delete($post->image_path)) {
                 // 例外を投げてロールバックさせる
                 throw new \Exception('画像ファイルの削除に失敗しました。');
@@ -153,7 +155,8 @@ class PostController extends Controller
             DB::rollback();
             return back()->withErrors($e->getMessage());
         }
-        return redirect()->route('posts.index')
+        // return redirect()->route('posts.index')
+        return redirect(route('posts.index'))
             ->with('notice', '記事を削除しました');
     }
 
